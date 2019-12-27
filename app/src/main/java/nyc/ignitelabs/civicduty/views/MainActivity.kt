@@ -16,10 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState != null) {
-            return
-        }
-
         viewModel.isEditing.observe(this, Observer {
             if (it) {
                 startEditing()

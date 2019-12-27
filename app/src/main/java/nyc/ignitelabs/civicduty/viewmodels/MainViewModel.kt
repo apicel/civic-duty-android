@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
     private val _greeting = MutableLiveData<String>("Hello World!")
 
     private val _isEditing = MutableLiveData<Boolean>(false)
 
-    val greeting: LiveData<String>
+    val greeting: MutableLiveData<String>
         get() = _greeting
 
     val isEditing: LiveData<Boolean>
@@ -19,8 +19,7 @@ class MainViewModel() : ViewModel() {
         _isEditing.value = true
     }
 
-    fun setGreeting(greeting: String) {
-        _greeting.value = greeting
+    fun endEditing() {
         _isEditing.value = false
     }
 }
